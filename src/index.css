@@ -6,6 +6,10 @@
   font-family: "comic";
   src: url(assets/fonts/SuperComic.ttf);
 }
+@font-face {
+  font-family: "party";
+  src: url(assets/fonts/PartyConfetti.ttf);
+}
 html, body{
   height: 100%;
 }
@@ -96,6 +100,8 @@ h1{
 
 
 }
-.win-message>div{
+.win-message>h2{
   opacity: 1;
+  font-family:"party";
+  color: #FF8B94;
 }

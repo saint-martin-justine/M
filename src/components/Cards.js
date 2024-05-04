@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Card from './Card';
+import Button from './button/button';  // Assurez-vous que le chemin d'importation est correct
 
 function Cards() {
-    const [items, setItems] = useState([
+    const initialItems = [
         { id: 1, img: '/img/hellokitty.jpg', stat: "" },
         { id: 1, img: '/img/hellokitty.jpg', stat: "" },
         { id: 2, img: '/img/badtz.jpg', stat: "" },
@@ -19,10 +20,16 @@ function Cards() {
         { id: 7, img: '/img/karoppl.jpg', stat: "" },
         { id: 8, img: '/img/pochaco.jpg', stat: "" },
         { id: 8, img: '/img/pochaco.jpg', stat: "" }
-    ].sort(() => Math.random() - 0.5));
+    ].sort(() => Math.random() - 0.5);
 
+    const [items, setItems] = useState(initialItems);
     const [prev, setPrev] = useState(-1);
     const [gameWon, setGameWon] = useState(false);
+
+    function resetGame() {
+        setItems([...initialItems].sort(() => Math.random() - 0.5));
+        setGameWon(false);
+    }
 
     function check(current) {
         if (items[current].id === items[prev].id) {
@@ -59,7 +66,12 @@ function Cards() {
 
     return (
         <div className="container">
-            {gameWon ? <div className="win-message"> <h2>Bravo tu as gagné</h2></div> : null}
+            {gameWon ? (
+                <div className="win-message">
+                    <h2>Bravo tu as gagné!</h2>
+                    <Button onClick={resetGame}>Rejouer</Button>  {/* Le bouton rejouer*/}
+                </div>
+            ) : null}
             {items.map((item, index) => (
                 <Card key={index} item={item} id={index} handleClick={handleClick} />
             ))}
