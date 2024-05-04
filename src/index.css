@@ -84,24 +84,53 @@ h1{
 }
 .win-message{
   position: absolute;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  background-color: #C7E995;
-  opacity: 0.95;
-  width: 800px;
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-
-
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: #C7E995;
+    opacity: 0.95;
+    width: 800px;
+    height: 40%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.win-message img {
+  width: 80%; 
+  max-height: 200px; 
+  object-fit: contain; 
 }
 .win-message>h2{
   opacity: 1;
   font-family:"party";
   color: #FF8B94;
+}
+.replay-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.replay-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "party", sans-serif; 
+  color: white;
+  background-color: #FF8B94;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  outline: none; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.replay-button:hover {
+  background-color: #E76A8A; 
+  transform: scale(1.05); 
+}
+
+.replay-button:active {
+  transform: scale(0.95); 
 }

@@ -69,7 +69,10 @@ function Cards() {
             {gameWon ? (
                 <div className="win-message">
                     <h2>Bravo tu as gagné!</h2>
-                    <Button onClick={resetGame}>Rejouer</Button>  {/* Le bouton rejouer*/}
+                    <img src="/img/bravo.gif" alt="Celebration" />
+                    <div className="replay-button-container">
+                        <Button onClick={resetGame}>Rejouer</Button>
+                    </div>
                 </div>
             ) : null}
             {items.map((item, index) => (
