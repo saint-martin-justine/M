@@ -1,33 +1,39 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
+
 @font-face {
   font-family: "comic";
   src: url(assets/fonts/SuperComic.ttf);
 }
+
 @font-face {
   font-family: "party";
   src: url(assets/fonts/PartyConfetti.ttf);
 }
-html, body{
+
+html,
+body {
   height: 100%;
 }
-body{
+
+body {
   background-color: #E3ECF2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1{
+h1 {
   font-family: "comic";
   text-align: center;
   margin-bottom: 1em;
   color: #FF8B94;
   font-size: 60px;
 }
-.container{
+
+.container {
   height: 700px;
   width: 700px;
   display: grid;
@@ -36,7 +42,7 @@ h1{
   gap: 1em;
 }
 
-.card{
+.card {
   background-color: #E6CBDC;
   display: flex;
   justify-content: center;
@@ -46,91 +52,123 @@ h1{
   animation: 2s hideCard linear;
   transition: transform 0.5s;
 }
-@keyframes hideCard{
-  0%, 70%{
+
+@keyframes hideCard {
+
+  0%,
+  70% {
     transform: rotateY(0);
   }
-  100%{
+
+  100% {
     transform: rotateY(180deg);
   }
 }
-.card img{
+
+.card img {
   max-width: 90%;
   max-height: 90%;
   transition: transform 0.5s;
   transform: scale(0);
   animation: 2s hideImage linear;
 }
-@keyframes hideImage{
-  0%, 70%{
+
+@keyframes hideImage {
+
+  0%,
+  70% {
     transform: scale(1);
   }
-  100%{
+
+  100% {
     transform: scale(0);
   }
 }
 
-.card.active{
+.card.active {
   transform: rotateY(0);
 }
-.card.correct{
+
+.card.correct {
   background-color: #65e469;
 }
-.card.wrong{
+
+.card.wrong {
   background-color: #fd245a;
 }
-.card.active img{
+
+.card.active img {
   transform: scale(1);
 }
-.win-message{
+
+.win-message {
   position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-    background-color: #C7E995;
-    opacity: 0.95;
-    width: 800px;
-    height: 40%;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: #C7E995;
+  opacity: 0.95;
+  width: 800px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
 }
+
 .win-message img {
-  width: 80%; 
-  max-height: 200px; 
-  object-fit: contain; 
+  width: 80%;
+  max-height: 200px;
+  object-fit: contain;
 }
-.win-message>h2{
+
+.win-message>h2 {
   opacity: 1;
-  font-family:"party";
+  font-family: "party";
   color: #FF8B94;
 }
+
 .replay-button-container {
   text-align: center;
   margin-top: 20px;
 }
+
 .replay-button {
   padding: 10px 20px;
   font-size: 16px;
-  font-family: "party", sans-serif; 
+  font-family: "party", sans-serif;
   color: white;
   background-color: #FF8B94;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  outline: none; 
+  outline: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .replay-button:hover {
-  background-color: #E76A8A; 
-  transform: scale(1.05); 
+  background-color: #E76A8A;
+  transform: scale(1.05);
 }
 
 .replay-button:active {
-  transform: scale(0.95); 
+  transform: scale(0.95);
+}
+
+@media (max-width: 800px) {
+  .container {
+    height: auto;
+    width: auto ;
+    margin: 10px;
+  }
+
+  .card img {
+    width: 100px;
+  }
+  .win-message{
+    width: 350px;
+  }
 }
